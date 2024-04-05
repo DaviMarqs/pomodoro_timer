@@ -45,13 +45,15 @@ export function Countdown() {
     setSecondsPassed,
   ])
 
+  
   const currentSeconds = activeCycle ? totalSeconds - amountSecondsPassed : 0
-
+  
   const minutesAmount = Math.floor(currentSeconds / 60)
   const secondsAmount = currentSeconds % 60
 
   const minutes = String(minutesAmount).padStart(2, '0')
   const seconds = String(secondsAmount).padStart(2, '0')
+  console.log(minutes[0], minutes[1], seconds[0], seconds[0], 'activeCycle')
 
   useEffect(() => {
     if (activeCycle) {
@@ -61,11 +63,9 @@ export function Countdown() {
 
   return (
     <CountdownContainer>
-      <span>{minutes[0]}</span>
-      <span>{minutes[1]}</span>
+      <span>{minutes}</span>
       <Separator>:</Separator>
-      <span>{seconds[0]}</span>
-      <span>{seconds[0]}</span>
+      <span>{seconds}</span>
     </CountdownContainer>
   )
 }
